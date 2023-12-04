@@ -23,3 +23,6 @@ Movie search screen
 
 Seat mapping(UI only)
 
+https://www.figma.com/file/4e1pQ2l0VkLNgnaV7xNlFW/Tentwenty-%3A-App-Test?type=design&node-id=21-234&mode=design
+
+https://developer.themoviedb.org/docs/search-and-query-for-details
