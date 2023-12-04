@@ -1,0 +1,26 @@
+export const Colors = {
+    WHITE: '#ffff',
+    PURPLE: '#2E2739',
+    BLACK: '#000',
+    PINK:'#FD50AF',
+    BLUE: '#117ACA',
+    GREEN: '#34B440',
+    DBLUE : '#2B3990',
+    LBLUE: '#0659A5',
+    LPURPLE: 'rgba(241, 226, 255, 1)',
+    LGREY: '#76707D',
+    LLGREY: '#B6B6B6',
+    LLLGREY: '#EDEDED',
+    DGREY: '#4F4F4F',
+    ChatInput: '#595959',
+    DARKGRY: '#6F6F6F',
+    BTPURPLE: '#7D09DF',
+    DDGREY: '#595959',
+    LLBLUE: '#73a1eb',
+    LRED: '#FFCCCB',
+    RED: '#FF0000',
+    LGREEN: '#90EE90',
+    LLBLUE: '#ADD8E6',
+
+
+}
