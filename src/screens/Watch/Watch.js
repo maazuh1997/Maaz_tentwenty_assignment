@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -34,11 +34,10 @@ const Watch = () => {
   const navigation = useNavigation();
   const [header, setHeader] = useState(true)
   const [search, setSearch] = useState('')
-  const [moviesData, setmoviesData] = useState([])
+  const timeout = useRef(null);
 
   const MoviesData = useSelector(state => state.GeneralReducer.getMoviesData);
 
-  console.log({ MoviesData })
   useEffect(() => {
     getMoviesData();
 
@@ -47,6 +46,17 @@ const Watch = () => {
   const getMoviesData = () => {
     dispatch(GeneralMiddleware.getMovies())
   }
+
+  const onSearch = (text) => {
+    let userData = {
+      search: text,
+    };
+    setSearch(text);
+    clearTimeout(timeout.current);
+    timeout.current = setTimeout(() => {
+      dispatch(GeneralMiddleware.searchMovies(userData))
+    }, 1000);
+  };
 
 
   const renderList = ({ item }) => {
@@ -73,8 +83,8 @@ const Watch = () => {
         :
         <SearchInput
           placeholder={'TV shows, movies and more'}
-          onCloseIconPress={() => setHeader(true)}
-          onChangeText={e => setSearch(e)}
+          onCloseIconPress={() => { setHeader(true); onSearch('') }}
+          onChangeText={e => onSearch(e)}
           value={search}
         />
       }

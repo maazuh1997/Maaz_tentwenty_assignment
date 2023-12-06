@@ -22,6 +22,18 @@ const Header = (props) => {
                     <Text style={[styles.heading, { color: props.ColorWhite ? Colors.WHITE : Colors.BLACK }]}>{props.title}</Text>
                 </View>
             </View>
+            {props.name ?
+                <View style={{ flexDirection: 'column' }}>
+                    <Text style={[styles.text, { color: Colors.BLACK }]}>{props.name}</Text>
+                    <Text style={[styles.text, { color: Colors.LBLUE, fontSize: Fonts.h7 }]}>{props.date}</Text>
+                </View>
+                : null}
+
+
+            {props.name ?
+                <View />
+                : null}
+
 
             {props?.SearchIcon ?
                 <View style={{ width: 35, alignItems: 'flex-end' }}>
@@ -50,6 +62,13 @@ const styles = StyleSheet.create({
         fontSize: Fonts.h5,
         color: Colors.BLACK,
         // marginLeft: 30
-        fontWeight: 'bold'
-    }
+        fontWeight: 'bold',
+    },
+    text: {
+        fontSize: Fonts.h6,
+        color: Colors.BLACK,
+        // marginLeft: 30
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
 });

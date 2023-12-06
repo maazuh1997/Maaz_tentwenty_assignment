@@ -4,6 +4,7 @@ import MyDrawer from './Drawer';
 import Home from '../screens/Home/Home';
 import CustomerBottomTab from './CustomerBottomTab';
 import MovieDetails from '../screens/Watch/MovieDetails/MovieDetails';
+import GetTickets from '../screens/Watch/GetTickets/GetTickets';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,11 @@ const AppStack = () => {
         }}
       />
       <Stack.Screen name="Details" component={MovieDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="GetTickets" component={GetTickets}
         options={{
           headerShown: false,
         }}

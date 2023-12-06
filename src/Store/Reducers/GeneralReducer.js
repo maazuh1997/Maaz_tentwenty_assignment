@@ -38,7 +38,6 @@ const GeneralReducer = (state = initialState, action) => {
       break;
 
     case ActionTypes.get_moviesData:
-      console.log('action.payload',action.payload)
       state = { ...state, getMoviesData: action.payload };
       break;
 

@@ -8,23 +8,29 @@ import CloseIcon from '../assets/CloseIcon.png';
 
 const SearchInput = (props) => {
     return (
-        <View style={styles.input_container}>
-            <Image source={SearchIcon} style={{ width: 26, height: 26, tintColor: Colors.BLACK }} />
-            <TextInput placeholder={props?.placeholder} style={styles.input} value={props?.value} onChangeText={props?.onChangeText} />
+        <View style={styles.main}>
+            <View style={styles.input_container}>
+                <Image source={SearchIcon} style={{ width: 26, height: 26, tintColor: Colors.BLACK }} />
+                <TextInput placeholder={props?.placeholder} style={styles.input} value={props?.value} onChangeText={props?.onChangeText} />
 
-            <TouchableOpacity onPress={props?.onCloseIconPress}>
-                <Image source={CloseIcon} style={{ width: 26, height: 26, tintColor: Colors.BLACK }} />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={props?.onCloseIconPress}>
+                    <Image source={CloseIcon} style={{ width: 20, height: 20, tintColor: Colors.BLACK }} />
+                </TouchableOpacity>
 
-        </View >
+            </View >
+        </View>
     );
 }
 
 export default SearchInput;
 
 const styles = StyleSheet.create({
+    main: {
+        width:'100%',
+        alignItems: 'center'
+    },
     input_container: {
-        width: '100%',
+        width: '90%',
         backgroundColor: Colors.LLLGREY,
         paddingHorizontal: 15,
         borderRadius: 30,
