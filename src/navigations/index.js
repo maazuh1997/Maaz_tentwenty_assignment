@@ -5,29 +5,22 @@ import AuthStack from './AuthStack';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View, Modal, ActivityIndicator, SafeAreaView } from 'react-native';
 import { Colors } from '../config/Colors';
+import { Snackbar } from 'react-native-paper';
+import { hideAlert } from '../Store/Actions/GeneralActions';
 
 const AppNavigation = () => {
 
-  const islogin = useSelector(state => state.AuthReducer.isLogin)
   const loading = useSelector(state => state.GeneralReducer.loading);
+  const showAlert = useSelector(state => state.GeneralReducer.showAlert);
+  const alert = useSelector(state => state.GeneralReducer.alertOptions);
+
   const dispatch = useDispatch()
-
-  // useEffect(() => {
-
-  //   isAuthentication()
-  // }, [islogin])
-
 
   return (
     <SafeAreaView style={{flex:1}}>
       <NavigationContainer>
 
        <AppStack />
-
-
-
-        {/* {islogin == undefined ? SplashScreen.show() : islogin ? <AppStack /> : <AuthStack />} */}
-
         <Modal visible={loading} transparent>
           <View
             style={{
@@ -40,6 +33,14 @@ const AppNavigation = () => {
             <Text style={{ color: '#fff', margin: 10 }}>Please wait</Text>
           </View>
         </Modal>
+
+        <Snackbar
+          onDismiss={() => dispatch(hideAlert())}
+          duration={4000}
+          style={{ backgroundColor: Colors.LBLUE, color: Colors.WHITE }}
+          visible={showAlert}>
+          {alert?.message}
+        </Snackbar>
 
       </NavigationContainer>
     </SafeAreaView>

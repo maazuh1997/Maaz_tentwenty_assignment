@@ -7,7 +7,7 @@ export const Colors = {
     LBLUE: '#60C3F2',
     GREEN: '#34B440',
     DBLUE : '#2B3990',
-    LPURPLE: 'rgba(241, 226, 255, 1)',
+    LPURPLE: '#564CA3',
     LGREY: '#F6F6FA',
     LLGREY: '#B6B6B6',
     LLLGREY: '#EDEDED',
@@ -21,6 +21,7 @@ export const Colors = {
     RED: '#FF0000',
     LGREEN: '#90EE90',
     LLBLUE: '#ADD8E6',
+    GOLD: '#CD9D0F',
 
 
 }

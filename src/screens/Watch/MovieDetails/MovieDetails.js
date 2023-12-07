@@ -68,7 +68,7 @@ const MovieDetails = (props) => {
           style={{
             fontSize: Fonts.h6,
             color: Colors.WHITE,
-            fontFamily: "Inter-Medium",
+            fontFamily: "Poppins-Light",
           }}
         />
       </View>
@@ -127,7 +127,7 @@ const MovieDetails = (props) => {
         <ScrollView style={{ flex: 1 }}>
           <TextComponent
             text={'Genres'}
-            style={{ fontSize: Fonts.h4, color: Colors.BLACK, }}
+            style={{ fontSize: Fonts.h4, color: Colors.BLACK, fontFamily: "Poppins-Medium", }}
           />
           <View>
             <FlatList
@@ -140,11 +140,11 @@ const MovieDetails = (props) => {
 
           <TextComponent
             text={'Overview'}
-            style={{ fontSize: Fonts.h4, color: Colors.BLACK, }}
+            style={{ fontSize: Fonts.h4, color: Colors.BLACK, fontFamily: "Poppins-Medium", }}
           />
           <TextComponent
             text={data?.overview}
-            style={{ fontSize: Fonts.h7, color: Colors.LLGREY, paddingHorizontal: 5, marginVertical: 10 }}
+            style={{ fontSize: Fonts.h7, color: Colors.LLGREY, paddingHorizontal: 5, marginVertical: 10, fontFamily: "Poppins-Light", }}
           />
         </ScrollView>
       </View>
@@ -182,7 +182,8 @@ const styles = StyleSheet.create({
   },
   headerCenterViewTextStyle: {
     color: Colors.WHITE,
-    fontSize: Fonts.h4
+    fontSize: Fonts.h4,
+    fontFamily: "Poppins-Medium",
   },
   buttonsView: {
     marginVertical: 10,

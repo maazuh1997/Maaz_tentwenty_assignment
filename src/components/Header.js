@@ -62,13 +62,14 @@ const styles = StyleSheet.create({
         fontSize: Fonts.h5,
         color: Colors.BLACK,
         // marginLeft: 30
-        fontWeight: 'bold',
+        fontFamily:'Poppins-Bold'
     },
     text: {
         fontSize: Fonts.h6,
         color: Colors.BLACK,
         // marginLeft: 30
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily:'Poppins-Bold',
         textAlign: 'center'
     },
 });

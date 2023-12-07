@@ -16,39 +16,43 @@ import { Fonts } from '../../../config/Fonts';
 import Button from '../../../components/Button';
 import TextComponent from '../../../components/TextComponent';
 import SeatArrangement from '../../../assets/SeatArrangement.png';
+import { useNavigation } from '@react-navigation/native';
+import { showAlert } from '../../../Store/Actions/GeneralActions';
+import { useDispatch } from 'react-redux';
 
 
 const GetTickets = (props) => {
-
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const data = props?.route?.params?.data;
-  const [selectedDate, setSelectedDate] = useState('5 Mar')
+  const [selectedDate, setSelectedDate] = useState("2021-3-05")
   const [selectedHall, setSelectedHall] = useState()
 
   const RandomDates = [
     {
       id: 1,
-      date: '5 Mar',
+      date: "2021-3-05",
     },
     {
       id: 2,
-      date: '6 Mar',
+      date: "2021-3-06",
     },
     {
       id: 3,
-      date: '7 Mar',
+      date: "2021-3-07",
     },
     {
       id: 4,
-      date: '8 Mar',
+      date: "2021-3-08",
     },
     {
       id: 5,
-      date: '9 Mar',
+      date: "2021-3-09",
     },
     {
       id: 6,
-      date: '10 Mar',
+      date: "2021-3-10",
     },
 
   ]
@@ -56,42 +60,42 @@ const GetTickets = (props) => {
     {
       id: 1,
       time: '12:30',
-      hall: 'Cinetech + hall 1',
+      hall: 'Cinetech + Hall 1',
       price: '50',
       bonus: '2500'
     },
     {
       id: 2,
       time: '12:30',
-      hall: 'Cinetech + hall 2',
+      hall: 'Cinetech + Hall 2',
       price: '80',
       bonus: '2500'
     },
     {
       id: 3,
       time: '12:50',
-      hall: 'Cinetech + hall 3',
+      hall: 'Cinetech + Hall 3',
       price: '20',
       bonus: '2500'
     },
     {
       id: 4,
       time: '1:30',
-      hall: 'Cinetech + hall 4',
+      hall: 'Cinetech + Hall 4',
       price: '50',
       bonus: '2500'
     },
     {
       id: 5,
       time: '3:30',
-      hall: 'Cinetech + hall 5',
+      hall: 'Cinetech + Hall 5',
       price: '70',
       bonus: '2500'
     },
     {
       id: 6,
       time: '7:30',
-      hall: 'Cinetech + hall 6',
+      hall: 'Cinetech + Hall 6',
       price: '100',
       bonus: '2500'
     },
@@ -114,11 +118,11 @@ const GetTickets = (props) => {
         }}
       >
         <TextComponent
-          text={item?.date}
+          text={moment(item?.date).format('D MMM')}
           style={{
             fontSize: Fonts.h6,
             color: selected ? Colors.WHITE : Colors.BLACK,
-            fontFamily: "Inter-Medium",
+            fontFamily: "Poppins-Light",
           }}
         />
       </TouchableOpacity>
@@ -166,6 +170,29 @@ const GetTickets = (props) => {
     );
   };
 
+  const onPressSelectSeats = () => {
+    let selectedData = {
+      date: selectedDate,
+      hall: selectedHall,
+    }
+    if (!selectedDate) {
+      dispatch(showAlert({
+        message: 'Please select Date to proceed.',
+        type: 'Error',
+      }))
+    }
+    if (!selectedHall) {
+      dispatch(showAlert({
+        message: 'Please select Hall to proceed.',
+        type: 'Error',
+      }))
+    }
+    else {
+      navigation.navigate('GetTicketsProceed', { data: data, selectedData })
+    }
+
+  }
+
 
   return (
     <View style={styles.container}>
@@ -208,6 +235,7 @@ const GetTickets = (props) => {
           <Button
             title={'Select Seats'}
             style={{ width: '80%' }}
+            onPress={() => onPressSelectSeats()}
           />
         </View>
       </View>
