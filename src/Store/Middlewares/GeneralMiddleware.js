@@ -12,8 +12,6 @@ export const GeneralMiddleware = {
             dispatch(ShowLoading());
             return new Promise(async (resolve, reject) => {
                 try {
-                    // let formdata = new FormData();
-                    // formdata.append('type_id', userdata?.type_id);
                     const { data } = await Axios.get(
                         Apis.moviesList,
                         await getHeaders());
